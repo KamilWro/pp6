@@ -1,0 +1,4 @@
+let xs=[1,2,3]: int list in
+match xs with
+| [] -> []:int list
+| y :: ys -> 1 

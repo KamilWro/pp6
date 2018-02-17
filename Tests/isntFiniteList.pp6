@@ -1,0 +1,12 @@
+fun getElem (x : int list * int) : int = 
+	let l= fst x in
+	let count= snd x in
+	match l with
+	| [] -> -1
+	| y :: ys 
+		-> if count=50 then y
+		   else getElem((ys,count+1))
+
+in
+  let lt = [1, 2, 3, lt] : int list in
+  getElem((lt,1))

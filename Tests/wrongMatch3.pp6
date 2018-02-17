@@ -1,0 +1,7 @@
+fun isFiniteList(xs : int list) : bool = 
+	match 1 with
+	| [] -> true
+	| y :: ys -> false
+
+in
+  1

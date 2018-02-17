@@ -1,0 +1,20 @@
+fun NWD(par: int * int) : int =
+	if getX(par) <> getY(par) then
+		if getX(par) > getY(par) then
+			NWD(getX(par)-getY(par),getY(par))
+		else 
+			NWD((getX(par),getY(par)-getX(par)))
+	else getX(par)
+
+fun getX(x: int * int) : int =
+	fst x
+	
+fun getY(x: int * int) : int =
+	snd x
+
+input i n b in 
+	if i = 1 then
+		NWD((n,b))
+	else 
+		NWD((n,b mod 0))
+	

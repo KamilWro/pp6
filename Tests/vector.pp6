@@ -1,0 +1,19 @@
+fun length(xs : int list) : int = 
+	match xs with
+	| [] -> 0
+	| y :: ys -> length (ys) + 1
+	
+fun length_list(xs : int list list) : int = 
+	match xs with
+	| [] -> 0
+	| y :: ys -> length(y) + length_list (ys)
+
+in
+let v1= [1,2,3,4]: int list in
+let v2= [5,6,7,8]: int list in
+let v3= [9,10,11,12]: int list in
+let v4= [13,14,15,16]: int list in
+let v5= [17,18,19,20]: int list in
+let vector= [v1,v2,v3,v4,v5,[2,2]:int list]: int list list in
+length_list(vector)
+

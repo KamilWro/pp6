@@ -1,0 +1,12 @@
+fun glF(g:int -> bool):int -> unit list=
+  if g 2 then fn(y:int)->[()]:unit list
+  else if (fn(w1: bool)-> (not w1)) (g 2) then fn(y:int)->[(),()]:unit list
+  else fn(y:int)->[(),(),(),()]:unit list
+fun glLength(g:int -> unit list): unit->int=
+  match g 42 with
+    | [] -> fn(y:unit)->0
+    | x::xs -> fn(y:unit)->(1+glLength(fn(y:int)->xs) ())
+in
+  let lcF= glF(fn(x:int)->if x=1 then true else false) in
+  let lcL= glLength(lcF) in
+  (fn (x:unit->int)-> x ()) lcL 

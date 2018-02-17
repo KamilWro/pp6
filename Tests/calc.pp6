@@ -1,0 +1,13 @@
+fun calc (pair:(int * int) * ((int * int) ->int) ): int=
+  let numbers=fst pair in
+  let f=snd pair in
+  f numbers
+  
+fun choiceLambda(x:int): (int*int)-> int=
+  if x=1 then fn(x:int*int)-> (fst x * snd x) 
+  else if x=2 then fn(x:int*int)-> (fst x + snd x)
+  else if x=3 then fn(x:int*int)-> (fst x div snd x)
+  else fn(x:int*int)-> (fst x - snd x)
+  
+input x1 x2 i in
+  calc((x1,x2),choiceLambda i)

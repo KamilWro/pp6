@@ -1,0 +1,6 @@
+input x1 x2 in
+  let y=x1 * x2 in
+  let f1=fn(x:int)->(x1 * x2 - y) in
+  let y=x1+5 in
+  let f2=fn(x:bool)->(if x then f1  else fn(x:int)->(x1+22) ) in 
+  f2 ((fn(x:bool)-> not x) false) 42

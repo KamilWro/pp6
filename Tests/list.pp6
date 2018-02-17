@@ -1,0 +1,7 @@
+fun max(xs: (int * bool) list) : int =
+	match xs with
+	| [] -> -1
+	| y :: ys -> if (fst y>=max(ys)) and snd y then fst y else max(ys) 
+in
+  let xs=[((-1),false),(1,true),(4,true),(2,false)]: (int * bool) list in
+  max(xs)

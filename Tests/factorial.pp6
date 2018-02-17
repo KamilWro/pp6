@@ -1,0 +1,6 @@
+fun factorial(n:int):int =
+  if (n=0) or (n=1) then 1 else
+  n*factorial(n-1)
+input x in
+  factorial(x)
+

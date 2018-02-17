@@ -1,0 +1,54 @@
+fun isFiniteList(xs : int list) : bool = 
+	match xs with
+	| [] -> true
+	| y :: ys -> isFiniteList (ys) 
+		
+fun length(xs : int list) : int = 
+	match xs with
+	| [] -> 0
+	| y :: ys -> length (ys) + 1
+	
+fun lengthWithOverwrite(x : unit list) : int = 
+	match x with
+	| [] -> 0
+	| x :: xs -> lengthWithOverwrite (xs) + 1
+
+fun pow2List (xs : int list) : int list = 
+	match xs with
+	| [] -> []: int list
+	| y :: ys -> (y*2) :: pow2List (ys)
+
+fun getElem (x : int list * (int * int)) : int = 
+	let l= fst x in
+	let r= snd x in
+	let count= snd r in
+	let index= fst r in
+	match l with
+	| [] -> -1
+	| y :: ys 
+		-> if count=index then y
+		   else getElem((ys,(index,count+1)))
+
+input x in
+  if x=1 then
+    let l = [1, 2, 3] : int list in
+		if isFiniteList(l) then 1 else 0   
+  else if x = 2 then
+    let l = [1, 2, 3] : int list in
+		length(l)
+	else if x=3 then
+    let l = [] : int list in
+		length(l)
+	else if x = 4 then
+		let l=[(), (), ()]: unit list in
+		lengthWithOverwrite(l)
+	else if x=5 then
+		let y= [1,2,3,4]: int list in
+		let l= pow2List(y) in
+		let length= length(l) in
+		getElem((l,(length,1)))
+	else
+    let y= 5 in
+    let z= [1,2,3,4,y]: int list in
+		getElem((z,(5,1)))	  
+

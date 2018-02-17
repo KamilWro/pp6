@@ -1,0 +1,10 @@
+fun isBool(x:int) : bool = 
+	if x = 1 then true else false
+	
+fun swap (x:int * int): int * bool=
+  let y=(snd x, isBool(fst x)) in
+  y
+  
+in
+  let x= swap(1,2) in 
+  if snd x then fst x else -1
